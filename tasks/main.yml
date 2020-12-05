@@ -1,0 +1,17 @@
+---
+- name: install apache
+  apt:
+    name: apache2
+    state: latest
+  become: yes
+- name: add index.html
+  copy:
+    content: "This is from ansible!!!"
+    dest: /var/www/html/index.html
+  become: yes
+- name: restart apache
+  service:
+    name: apache2
+    state: restarted
+    enavled: yes
+  become: yes
