@@ -5,8 +5,8 @@
     state: latest
   become: yes
 - name: add index.html
-  copy:
-    content: "This is from ansible!!!"
+  template:
+    src: templates/index.j2
     dest: /var/www/html/index.html
   become: yes
 - name: restart apache
